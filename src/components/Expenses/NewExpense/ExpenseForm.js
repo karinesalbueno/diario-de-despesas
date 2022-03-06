@@ -2,11 +2,30 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-    const [enteredTitle, SetEnteredTitle] = useState('');
-            
-    const titleChangeHandler = (event) =>{
-        SetEnteredTitle(event.target.value)
+    const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        enteredAmount: '',
+        enteredDate: ''
+    });
+
+    const titleChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return { ...prevState, enteredTitle: event.target.value }
+        })
     }
+    const amountChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return { ...prevState, enteredAmount: event.target.value }
+        })
+    }
+    const dateChangeHandler = (event) => {
+        setUserInput((prevState) => {
+            return { ...prevState, enteredDate: event.target.value }
+        })
+    }
+    //prevState, que depende do estado anterior. Essa é uma forma de usar varios useState juntos, permitindo varios estados juntos.  
+
+
     return <form>
         <div className='new-expense__controls'>
 
