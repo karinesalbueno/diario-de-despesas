@@ -1,5 +1,5 @@
-import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/Expenses/NewExpense/NewExpense';
 
 function App() {
 
@@ -10,7 +10,12 @@ function App() {
       amount: 94.12,
       date: new Date(2020, 7, 14),
     },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: 'e2',
+      title: 'New TV',
+      amount: 799.49,
+      date: new Date(2021, 2, 12),
+    },
     {
       id: 'e3',
       title: 'Car Insurance',
@@ -25,14 +30,10 @@ function App() {
     },
   ];
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        helooo
-        <ExpenseItem title={expenses[0].title} price={expenses[0].amount} date={expenses[0].date.toISOString()}/>
-        <ExpenseItem title={expenses[1].title} price={expenses[1].amount} date={expenses[1].date.toISOString()}/>
-        <ExpenseItem title={expenses[2].title} price={expenses[2].amount} date={expenses[2].date.toISOString()}/>
-        <ExpenseItem title={expenses[3].title} price={expenses[3].amount} date={expenses[3].date.toISOString()}/>
-
+        <NewExpense />
+        <Expenses items={expenses} />
 
       </header>
     </div>
