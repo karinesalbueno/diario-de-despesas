@@ -29,10 +29,16 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseDataHandler = expense => {
+    console.log('in App.js');
+    console.log(expense);
+  };
+
   return (
     <div>
       <header className="App-header">
-        <NewExpense />
+        <NewExpense onAddExpense={addExpenseDataHandler} />
         <Expenses items={expenses} />
 
       </header>
