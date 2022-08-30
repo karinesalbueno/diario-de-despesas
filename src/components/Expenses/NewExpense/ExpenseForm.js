@@ -2,39 +2,46 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = (props) => {
-    const [enteredTitle, SetEnteredTitle] = useState('');
-    const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
+    const [userInput, setUserInput] = useState({
+        enteredDate: '',
+        enteredAmount: '',
+        enteredTitle: ''
+    });
 
     const titleChangeHandler = (event) => {
-        SetEnteredTitle(event.target.value)
+        setUserInput((prevState) => {
+            return { ...prevState, enteredTitle: event.target.value }
+        })
     }
     const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value)
+        setUserInput((prevState) => {
+            return { ...prevState, enteredAmount: event.target.value }
+        })
     }
     const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value)
+        setUserInput((prevState) => {
+            return { ...prevState, enteredDate: event.target.value }
+        })
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
         //evita que a pag seja recarregada ao enviar o formulário
         const expenseData = {
-            title: enteredTitle,
-            amount: enteredAmount,
-            date: new Date(enteredDate)
+            title: userInput.enteredTitle,
+            amount: userInput.enteredAmount,
+            date: new Date(userInput.enteredDate)
         }
+        props.onSaveExpenseData(expenseData)
+        /* pega a propriedade do newExpense gerando um id aleatorio e adicionando ao 
+        componente ExpenseForm chamado e atribuindo a ele qnd o submit é feito*/
+        /*passa o expenseData dentro para que possa unir os dados de id c titulo, preço e data */
 
-
-       props.onSaveExpenseData(expenseData)
-    /* pega a propriedade do newExpense gerando um id aleatorio e adicionando ao 
-    componente ExpenseForm chamado e atribuindo a ele qnd o submit é feito*/
-    /*passa o expenseData dentro para que possa unir os dados de id c titulo, preço e data */
-    
-
-        SetEnteredTitle('')
-        setEnteredAmount('')
-        setEnteredDate('')
+        setUserInput({
+            enteredDate: '',
+            enteredAmount: '',
+            enteredTitle:''
+        })
     }
 
     return (
@@ -42,27 +49,26 @@ const ExpenseForm = (props) => {
             <div className='new-expense__controls'>
 
                 <div className='new-expense__control'>
-                    <label>Tittle</label>
                     <input
                         type="text"
-                        value={enteredTitle}
+                        placeholder='tittle'
+                        value={userInput.enteredTitle}
                         onChange={titleChangeHandler} />
                 </div>
 
                 <div className='new-expense__control'>
-                    <label>Amount</label>
                     <input
+                        placeholder='Amount'
                         type="number" min="0.01" step="0.01"
-                        value={enteredAmount}
-                        onChange={amountChangeHandler}/>
+                        value={userInput.enteredAmount}
+                        onChange={amountChangeHandler} />
                 </div>
 
                 <div className='new-expense__control'>
-                    <label>Date</label>
                     <input
                         type="date" min="2020-01-01" max="2022-05-03"
-                        value={enteredDate} 
-                        onChange={dateChangeHandler} />
+                        value={userInput.enteredDate}
+                        onChange={dateChangeHandler} required />
                 </div>
 
             </div>
