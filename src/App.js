@@ -1,7 +1,6 @@
-import Expenses from './components/Expenses/Expenses';
+import Expenses from './components/Expenses/ExpenseCard';
 import NewExpense from './components/Expenses/NewExpense/NewExpense';
 import  { useState } from 'react';
-import ExpenseFilter from './components/Expenses/Filter/ExpenseFilter';
 
 function App() {
 

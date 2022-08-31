@@ -3,7 +3,6 @@
     background-color: rgb(215, 243, 222);
     margin:auto;
     width:80%;
-     display: flex;
-    flex-wrap: wrap; 
-
+    display: flex;
+    flex-direction: column;
   }
