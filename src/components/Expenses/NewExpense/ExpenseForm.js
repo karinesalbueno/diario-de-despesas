@@ -29,7 +29,7 @@ const ExpenseForm = (props) => {
         //evita que a pag seja recarregada ao enviar o formulário
         const expenseData = {
             title: userInput.enteredTitle,
-            amount: userInput.enteredAmount,
+            amount: +userInput.enteredAmount,
             date: new Date(userInput.enteredDate)
         }
         props.onSaveExpenseData(expenseData)
