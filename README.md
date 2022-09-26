@@ -1,5 +1,10 @@
-# Lista de despesas, filtrando por anos com gráfico, e adicionando novas despesas 
-# responsivo
+#### Lista de despesas, filtrando por anos com gráfico, e adicionando novas despesas (responsivo)
+
+![image](https://user-images.githubusercontent.com/55932953/192383640-d0c1af5b-9d78-4908-8031-aef381f6d4ad.png)
+-----
+![image](https://user-images.githubusercontent.com/55932953/192384235-cce79e3a-fd10-4f4d-8dca-14ad58adf3cd.png)
+
+
 
 
 In the project directory, you can run:
