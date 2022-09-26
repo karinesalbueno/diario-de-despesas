@@ -6,12 +6,17 @@ li{
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  background-color: #8f8f8f;
+  background-color: #8275a7;
   margin: 10px;
   width: 12rem;
   height: 6em;
 }
 
+@media (min-width: 580px) {
+  .expense-item {
+    width: 20rem;
+  }
+}
 .expense-item__description {
   display: flex;
   flex-direction: column;
@@ -31,9 +36,8 @@ li{
 }
 
 .expense-item__price {
-  font-size: 0.8rem;
+  font-size: 0.89rem;
   color: white;
-  background-color:  rgb(112, 112, 112);
   padding: 3px;
   border-radius: 8px;
 }
@@ -48,7 +52,7 @@ li{
   }
 
   .expense-item__price {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0.5rem ;
     width: 70px;
   }
